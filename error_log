@@ -1,0 +1,7 @@
+[17-Mar-2016 01:36:25 UTC] PHP Warning:  require(/home/youpornflix/public_html/ypf/bootstrap/../vendor/autoload.php): failed to open stream: No such file or directory in /home/youpornflix/public_html/ypf/bootstrap/autoload.php on line 17
+[17-Mar-2016 01:36:25 UTC] PHP Fatal error:  require(): Failed opening required '/home/youpornflix/public_html/ypf/bootstrap/../vendor/autoload.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/youpornflix/public_html/ypf/bootstrap/autoload.php on line 17
+[17-Mar-2016 01:39:52 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Application' not found in /home/youpornflix/public_html/ypf/bootstrap/app.php on line 14
+[17-Mar-2016 01:39:58 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Application' not found in /home/youpornflix/public_html/ypf/bootstrap/app.php on line 14
+[17-Mar-2016 01:42:52 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Application' not found in /home/youpornflix/public_html/ypf/bootstrap/app.php on line 14
+[17-Mar-2016 01:42:57 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Application' not found in /home/youpornflix/public_html/ypf/bootstrap/app.php on line 14
+[17-Mar-2016 01:43:54 UTC] PHP Fatal error:  Class 'Illuminate\Foundation\Application' not found in /home/youpornflix/public_html/ypf/bootstrap/app.php on line 14
