@@ -27,7 +27,7 @@ class HomeController extends Controller
 
     public function showSearch($slug = "", Request $request)
     {
-        $tag = Tag::where("name","=",$slug)->first();
+        $tag = Tag::where("slug","=",$slug)->first();
         $data['tag'] = $tag;
         $data['scenes'] = $tag->scene()->groupBy('id')->paginate(100);
 
