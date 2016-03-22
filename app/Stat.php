@@ -4,15 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Affiliate extends Model
+class Stat extends Model
 {
+
     public function scene()
     {
         return $this->belongsTo('App\Scene');
     }
 
-    public function stats()
+    public function affiliate()
     {
-        return $this->hasMany('App\Stat');
+        return $this->belongsTo('App\Affiliate');
     }
 }

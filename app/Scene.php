@@ -24,6 +24,11 @@ class Scene extends Model
         return $this->belongsToMany('App\Tag','scene_has_tags');
     }
 
+    public function stats()
+    {
+        return $this->belongsTo('App\Stat');
+    }
+
     public function thumbnail()
     {
         return $this->hasMany('App\Thumbnail');
