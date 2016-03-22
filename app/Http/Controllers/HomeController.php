@@ -8,7 +8,7 @@ use App\Affiliate;
 use App\Site;
 use App\Stat;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
@@ -25,11 +25,40 @@ class HomeController extends Controller
         return view('home.index', $data);
     }
 
-    public function showSearch($slug = "")
+    public function showSearch($slug = "", Request $request)
     {
         $tag = Tag::where("name","=",$slug)->first();
         $data['tag'] = $tag;
-        $data['scenes'] = $tag->scene->all();
+        $data['scenes'] = $tag->scene()->groupBy('id')->paginate(100);
+
+        return view('home.search', $data);
+    }
+
+    public function showBySort(Request $request)
+    {
+        if($request->has('sort'))
+        {
+            if($request->input('sort') == 'date')
+            {
+                $data['scenes'] = Scene::orderBy('created_at','desc')->paginate(100);
+            }
+            else
+            {
+                $data['scenes'] = Scene::orderBy('rating','desc')->paginate(100);
+            }
+
+        }
+        elseif($request->has('q'))
+        {
+            $tag = Tag::where("name","like",$request->input('q'))->first();
+            $data['tag'] = $tag;
+            $data['scenes'] = $tag->scene()->groupBy('id')->paginate(100);
+        }
+        else
+        {
+            $data['scenes'] = Scene::paginate(100);
+        }
+
         return view('home.search', $data);
     }
 

@@ -13,4 +13,5 @@
 
 Route::get('out/{id}/{any}', 'HomeController@showOut');
 Route::get('search/{any}', 'HomeController@showSearch');
+Route::get('search', 'HomeController@showBySort');
 Route::get('/', 'HomeController@showHome');

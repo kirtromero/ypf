@@ -80,6 +80,42 @@
     .navbar-toggle .icon-bar {
         background: #fff;
     }
+    .pagination {
+        margin: 20px auto;
+    }
+    .pagination>li>a:focus,
+    .pagination>li>a:hover,
+    .pagination>li>span:focus,
+    .pagination>li>span:hover {
+        color: #DF2027;
+    }
+    .pagination>.active>a,
+    .pagination>.active>a:focus,
+    .pagination>.active>a:hover,
+    .pagination>.active>span,
+    .pagination>.active>span:focus,
+    .pagination>.active>span:hover {
+        z-index: 3;
+        color: #fff;
+        cursor: default;
+        background-color: #DF2027;
+        border-color: #DF2027;
+    }
+    .pagination>li>a,
+    .pagination>li>span {
+        position: relative;
+        float: left;
+        padding: 6px 12px;
+        margin-left: -1px;
+        line-height: 1.42857143;
+        color: #DF2027;
+        text-decoration: none;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+    footer {
+        margin-top: 20px;
+    }
     @media (max-width: 768px){
         .navbar-brand>img {
             width: 205px;
@@ -116,9 +152,9 @@
                     <li><a href="/search/Lesbian">Lesbian</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <form class="navbar-form navbar-left" role="search">
+                    <form class="navbar-form navbar-left" role="search" action="/search">
 	                    <div class="form-group">
-	                        <input type="text" class="form-control" placeholder="Search">
+	                        <input type="text" class="form-control" name="q" placeholder="Search">
 	                    </div>
 	                    <button type="submit" class="btn btn-default">Search</button>
 	                </form>
@@ -130,6 +166,11 @@
     <div class="container-fluid">
     	@yield('content')
     </div>
+    <footer>
+        <div class="container text-center">
+            &copy; 2016 YoupornFlix.com
+        </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
