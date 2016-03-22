@@ -21,7 +21,7 @@ class HomeController extends Controller
      */
     public function showHome()
     {
-        $data['tags'] = Tag::where("active","=",1)->orderBy('sort','desc')->get();
+        $data['tags'] = Tag::where("active","=",1)->orderBy('sort','asc')->get();
         return view('home.index', $data);
     }
 
