@@ -65,6 +65,7 @@
     }
     .thumbs {
         float: left;
+        height: 160px;
         width: 180px;
         margin: 0px 1px 1px 1px;
     }
