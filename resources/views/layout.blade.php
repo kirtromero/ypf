@@ -10,6 +10,8 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
 
+    <link rel="icon" href="{{ url('images/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ url('images/favicon.ico') }}" type="image/x-icon"/>
 
     <style>
     html, body {
@@ -69,6 +71,26 @@
     .thumbs:hover h5 {
         text-decoration: underline;
     }
+    .navbar-brand {
+        padding: 10px 10px;
+    }
+    .navbar-brand>img {
+        width: 250px;
+    }
+    .navbar-toggle .icon-bar {
+        background: #fff;
+    }
+    @media (max-width: 768px){
+        .navbar-brand>img {
+            width: 205px;
+        }
+        .thumbs {
+            width: 49%;
+        }
+        .navbar-form {
+            display: none;
+        }
+    }
     </style>
 </head>
 <body>
@@ -82,25 +104,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">YouPornFlix</a>
+                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" id="logo"></a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="/search/?sort=rated">Top Rated</a></li>
+                    <li><a href="/search/?sort=date">New Videos</a></li>
+                    <li><a href="/search/asian">Asian</a></li>
+                    <li><a href="/search/amateur">Amateur</a></li>
+                    <li><a href="/search/Lesbian">Lesbian</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <form class="navbar-form navbar-left" role="search">
