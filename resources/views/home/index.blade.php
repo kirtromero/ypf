@@ -6,7 +6,7 @@
     @foreach($tags as $tag)
     <div class="thumbs">
         <a href="/search/{{ str_slug($tag->name) }}" title="{{ $tag->name }}" alt="{{ $tag->name }}" target="_blank">
-            <img src="{{ $tag->scene->first()->primary_thumbnail }}" class="img-responsive center-block">
+            <img src="{{ $tag->scene()->orderBy('created_at', 'desc')->first()->primary_thumbnail }}" class="img-responsive center-block">
         </a>
         <h5>{{ $tag->name }}</h5>
     </div>
