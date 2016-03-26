@@ -29,10 +29,11 @@
     a {
         color: #fff;
     }
-    a:hover,
+    a:hover {
+        color: #000;
+    }
     .nav>li>a:focus,
     .nav>li>a:hover {
-        color: #000;
         background: transparent;
     }
     .navbar {
