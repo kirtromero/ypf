@@ -12,8 +12,8 @@
         	@else
         		<img src="{{ $tag->scene()->orderBy('created_at','desc')->first()->primary_thumbnail }}" class="img-responsive center-block">
         	@endif
+            <h5>{{ $tag->name }}</h5>
         </a>
-        <h5>{{ $tag->name }}</h5>
     </div>
     @endforeach
 </div>

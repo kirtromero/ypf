@@ -8,11 +8,11 @@
     <h1 class="text-left">All Results</h1>
     @endif
     @foreach($scenes as $scene)
-    <div class="thumbs">
+    <div class="thumbs" title="{{ $scene->title }}" alt="{{ $scene->title }}" target="_blank">
         <a href="/out/{{ $scene->id }}/{{ str_slug($scene->title) }}" title="{{ $scene->title }}" alt="{{ $scene->title }}">
             <img src="{{ $scene->primary_thumbnail }}" class="img-responsive center-block">
+            <h5>{{ $scene->title }}</h5>
         </a>
-        <h5>{{ $scene->title }}</h5>
     </div>
     @endforeach
     <div class="clearfix"></div>
