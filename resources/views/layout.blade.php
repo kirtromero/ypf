@@ -30,10 +30,11 @@
         color: #fff;
     }
     a:hover {
-        color: #000;
+        color: #fff;
     }
     .nav>li>a:focus,
     .nav>li>a:hover {
+        color: #000;
         background: transparent;
     }
     .navbar {
