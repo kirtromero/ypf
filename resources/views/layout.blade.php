@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta name="hubtraffic-domain-validation"  content="74a5b3a5d291f267" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Free Porn Tube Flix - Youpornflix.com</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
@@ -184,7 +186,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-75449335-1', 'auto');
+      ga('create', 'UA-75683029-1', 'auto');
       ga('send', 'pageview');
 
     </script>
