@@ -11,7 +11,7 @@
     <div class="thumbs">
         <a href="/out/{{ $scene->id }}/{{ str_slug($scene->title) }}" title="{{ $scene->title }}" target="_blank" alt="{{ $scene->title }}">
             <img src="{{ $scene->primary_thumbnail }}" class="img-responsive center-block">
-            <h5>{{ $scene->title }}</h5>
+            <h5 class="thumb-title">{{ $scene->title }}</h5>
         </a>
     </div>
     @endforeach

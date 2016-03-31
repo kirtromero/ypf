@@ -54,7 +54,23 @@
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
 	    overflow: hidden;
+        text-transform: uppercase;
 	}
+    .thumb-title {
+        font-weight: 400;
+    }
+    .thumbs:hover a .thumb-title {
+        white-space: normal;
+        text-align: left;
+        z-index: 1000;
+        position: relative;
+        padding: 0px 2px 5px 0px;
+        background: #000;
+    }
+    .thumbnails {
+        border: 1px solid #333333;
+        width: 185px;
+    }
     .container {
         text-align: center;
         vertical-align: middle;
@@ -73,6 +89,7 @@
         height: 160px;
         width: 180px;
         margin: 0px 1px 1px 1px;
+        text-align: center;
     }
     .thumbs:hover h5 {
         text-decoration: underline;
