@@ -4,7 +4,7 @@
     <meta name="hubtraffic-domain-validation"  content="74a5b3a5d291f267" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Free Porn Tube Flix - Youpornflix.com</title>
+    <title>{{ isset($pageTitle) ? $pageTitle : "Free Porn Tube Flix - Youpornflix.com" }}</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <!-- Latest compiled and minified CSS -->
@@ -27,6 +27,7 @@
         color: #fff;
         font-weight: 400;
         background: #000;
+        font-family: Helvetica;
     }
     a {
         color: #fff;
@@ -58,6 +59,7 @@
 	}
     .thumb-title {
         font-weight: 400;
+        text-align: left;
     }
     .thumbs:hover a .thumb-title {
         white-space: normal;
@@ -168,11 +170,12 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/search/?sort=rated">Top Rated</a></li>
-                    <li><a href="/search/?sort=date">New Videos</a></li>
-                    <li><a href="/search/asian">Asian</a></li>
-                    <li><a href="/search/amateur">Amateur</a></li>
-                    <li><a href="/search/Lesbian">Lesbian</a></li>
+                    <li><a href="/search/?sort=rated"  title="top rated porn flix">Top Rated</a></li>
+                    <li><a href="/search/?sort=date" title="Recent porn flix">New Videos</a></li>
+                    <li><a href="/search/asian" title="Asian porn flix">Asian</a></li>
+                    <li><a href="/search/amateur" title="Amateur porn flix">Amateur</a></li>
+                    <li><a href="/search/Lesbian" title="Lesbian porn flix">Lesbian</a></li>
+                    <li><a href="http://myporndir.com" title="Free Porn Sites">Best Porn Sites</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <form class="navbar-form navbar-left" role="search" action="/search">

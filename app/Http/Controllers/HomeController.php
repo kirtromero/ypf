@@ -30,6 +30,7 @@ class HomeController extends Controller
         $tag = Tag::where("slug","=",$slug)->first();
         $data['tag'] = $tag;
         $data['scenes'] = $tag->scene()->groupBy('id')->paginate(100);
+        $data['pageTitle'] = ucfirst( $tag->name ) . " Porn Flix | YourPornFlix.com";
 
         return view('home.search', $data);
     }
@@ -58,6 +59,8 @@ class HomeController extends Controller
         {
             $data['scenes'] = Scene::paginate(100);
         }
+
+        $data['pageTitle'] = ucfirst( $tag->name ) . " Porn Flix | YourPornFlix.com";
 
         return view('home.search', $data);
     }
