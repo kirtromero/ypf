@@ -10,7 +10,7 @@
     @foreach($scenes as $scene)
     <div class="thumbs">
         <a href="/out/{{ $scene->id }}/{{ str_slug($scene->title) }}" title="{{ $scene->title }}" target="_blank" alt="{{ $scene->title }}">
-            <img src="{{ $scene->primary_thumbnail }}" class="img-responsive center-block">
+            <img src="{{ $scene->primary_thumbnail }}" title="{{ $scene->title }}" alt="{{ $scene->title }}" class="img-responsive center-block"  width="180" height="135">
             <h5 class="thumb-title">{{ $scene->title }}</h5>
         </a>
     </div>

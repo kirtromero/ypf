@@ -244,7 +244,6 @@
           url: "/all-categories"
         })
           .done(function( html ) {
-            console.log(html);
             $("#categories").html(html);
           });
     });
