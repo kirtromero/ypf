@@ -22,6 +22,7 @@ class HomeController extends Controller
     public function showHome()
     {
         $data['tags'] = Tag::where("active","=",1)->where("name","not like","%gay%")->orderBy('sort','asc')->get();
+
         return view('home.index', $data);
     }
 
@@ -29,7 +30,7 @@ class HomeController extends Controller
     {
         $tag = Tag::where("slug","=",$slug)->first();
         $data['tag'] = $tag;
-        $data['scenes'] = $tag->scene()->groupBy('id')->paginate(100);
+        $data['scenes'] = $tag->scene()->groupBy('id')->orderBy("created_at","DESC")->paginate(100);
         $data['pageTitle'] = ucfirst( $tag->name ) . " Porn Flix | YourPornFlix.com";
 
         return view('home.search', $data);
@@ -53,7 +54,7 @@ class HomeController extends Controller
         {
             $tag = Tag::where("name","like",$request->input('q'))->first();
             $data['tag'] = $tag;
-            $data['scenes'] = $tag->scene()->groupBy('id')->paginate(100);
+            $data['scenes'] = $tag->scene()->groupBy('id')->orderBy("created_at","DESC")->paginate(100);
         }
         else
         {
@@ -76,5 +77,23 @@ class HomeController extends Controller
         $stat->save();
 
         return Redirect::away($scene->link);
+    }
+
+    public function getCategories()
+    {
+        $alltags = Tag::orderBy("name", "ASC")->get();
+
+        $previous = null;
+
+        foreach ($alltags as $key => $value) {
+            $firstLetter = substr(ucwords($value->name), 0, 1);
+            if(is_numeric($firstLetter)){
+                $firstLetter = "#";
+            }
+            if($previous !== $firstLetter) echo "\n<b>".$firstLetter."</b>";
+            $previous = $firstLetter;
+            echo "<p><a href='/search/".$value->slug."'>". ucwords($value->name)."</a></p>";
+        }
+
     }
 }

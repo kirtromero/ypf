@@ -18,3 +18,5 @@ class Scene_has_thumbnail extends Model
         return $this->belongsTo('App\Thumbnail');
     }
 }
+
+

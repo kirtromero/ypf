@@ -140,6 +140,37 @@
     }
     footer {
         margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+    #categories {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+        -webkit-column-width: 280px;
+        -moz-column-width: 280px;
+        column-width: 280px;
+        width: auto !important;
+        max-width: none !important;
+        float: left;
+        padding-right: 10px;
+    }
+    #categories p {
+        margin: 0px;
+    }
+    #categories b {
+        width: 100%;
+        border-bottom: 1px solid;
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 17px;
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: #A0A0A0;
     }
     @media (max-width: 768px){
         .navbar-brand>img {
@@ -192,6 +223,10 @@
     <div class="cleafix"></div>
     <div class="container-fluid">
     	@yield('content')
+
+        <h4>Free Porn Flix Categories</h4>
+        <div id="categories" class="hidden-sm hidden-xs">
+        </div>
     </div>
     <footer>
         <div class="container text-center">
@@ -201,6 +236,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $.ajax({
+          method: "GET",
+          url: "/all-categories"
+        })
+          .done(function( html ) {
+            console.log(html);
+            $("#categories").html(html);
+          });
+    });
+    </script>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
