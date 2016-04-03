@@ -90,7 +90,7 @@ class HomeController extends Controller
             if(is_numeric($firstLetter)){
                 $firstLetter = "#";
             }
-            if($previous !== $firstLetter) echo "\n<b>".$firstLetter."</b>";
+            if($previous !== $firstLetter) echo "\n<p><b>".$firstLetter."</b><p>";
             $previous = $firstLetter;
             echo "<p><a href='/search/".$value->slug."'>". ucwords($value->name)."</a></p>";
         }
