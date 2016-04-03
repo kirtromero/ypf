@@ -92,7 +92,7 @@ class HomeController extends Controller
             }
             if($previous !== $firstLetter) echo "\n<p><b>".$firstLetter."</b></p>";
             $previous = $firstLetter;
-            echo "<p><a href='/search/".$value->slug."'>". ucwords(str_limit($value->name, $limit = 45, $end = '...'))."</a></p>";
+            echo "<p><a target='_blank' title='".$value->name."' href='/search/".$value->slug."'>". ucwords(str_limit($value->name, $limit = 45, $end = '...'))."</a></p>";
         }
 
     }
