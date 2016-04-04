@@ -81,7 +81,7 @@ class HomeController extends Controller
 
     public function getCategories()
     {
-        $alltags = Tag::orderBy("name", "ASC")->get();
+        $alltags = Tag::where("show","=",1)->orderBy("name", "ASC")->get();
 
         $previous = null;
 
