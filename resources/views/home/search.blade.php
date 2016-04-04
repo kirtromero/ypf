@@ -16,6 +16,6 @@
     </div>
     @endforeach
     <div class="clearfix"></div>
-    {!! $scenes->render() !!}
+    {!! $scenes->appends(Input::except('page'))->render() !!}
 </div>
 @stop
