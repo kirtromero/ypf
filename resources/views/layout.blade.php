@@ -61,6 +61,7 @@
     .thumb-title {
         font-weight: 400;
         text-align: left;
+        font-size: 12px;
     }
     .thumbs:hover a .thumb-title {
         white-space: normal;
