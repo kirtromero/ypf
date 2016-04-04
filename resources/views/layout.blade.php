@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="msvalidate.01" content="60052BA07B928227E7D1B305609C7EA2" />
     <meta name="hubtraffic-domain-validation"  content="74a5b3a5d291f267" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
