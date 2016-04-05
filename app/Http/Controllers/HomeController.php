@@ -52,9 +52,18 @@ class HomeController extends Controller
         }
         elseif($request->has('q'))
         {
-            $tag = Tag::where("name","like",$request->input('q'))->first();
-            $data['tag'] = $tag;
-            $data['scenes'] = $tag->scene()->groupBy('id')->orderBy("created_at","DESC")->paginate(100);
+            $search = $request->input('q');
+            $tag = Tag::where("name","like", $search )->first();
+            if($tag)
+            {
+                $data['tag'] = $tag;
+                $data['scenes'] = $tag->scene()->groupBy('id')->orderBy("created_at","DESC")->paginate(100);
+            }
+            else
+            {
+                $data['scenes'] = Scene::where("title","LIKE","%". $search ."%")->groupBy('id')->orderBy("created_at","DESC")->paginate(100);
+            }
+
         }
         else
         {
