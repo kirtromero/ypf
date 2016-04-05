@@ -52,17 +52,13 @@ class HomeController extends Controller
         }
         elseif($request->has('q'))
         {
-            $search = $request->input('q');
-            $tag = Tag::where("name","like", $search )->first();
-            if($tag)
-            {
-                $data['tag'] = $tag;
-                $data['scenes'] = $tag->scene()->groupBy('id')->orderBy("created_at","DESC")->paginate(100);
-            }
-            else
-            {
-                $data['scenes'] = Scene::where("title","LIKE","%". $search ."%")->groupBy('id')->orderBy("created_at","DESC")->paginate(100);
-            }
+            $search = $request->has('q');
+            $data['scenes'] = Scene::with('tags')->whereHas('tags', function($query) use ($search) {
+                                                    $query->where('name', 'LIKE', "%".$search."%");
+                                                })
+                                                ->orWhere('title', 'LIKE', "%".$search."%")
+                                                ->orderBy("created_at","DESC")
+                                                ->paginate(100);
 
         }
         else
@@ -70,7 +66,7 @@ class HomeController extends Controller
             $data['scenes'] = Scene::paginate(100);
         }
 
-        $data['pageTitle'] = isset($tag->name) ? ucfirst( $tag->name ) . " Porn Flix | YourPornFlix.com" : " Free Porn Flix | YourPornFlix.com " ;
+        $data['pageTitle'] = isset($search) ? ucfirst( $search ) . " Porn Flix | YourPornFlix.com" : " Free Porn Flix | YourPornFlix.com " ;
 
         return view('home.search', $data);
     }
