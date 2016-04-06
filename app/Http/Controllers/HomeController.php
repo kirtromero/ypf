@@ -42,7 +42,7 @@ class HomeController extends Controller
 
     public function showBySort(Request $request)
     {
-        $limit = 2;
+        $limit = 100;
         if($request->has('sort'))
         {
             if($request->input('sort') == 'date')
