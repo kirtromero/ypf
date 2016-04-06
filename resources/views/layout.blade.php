@@ -33,7 +33,9 @@
     a {
         color: #fff;
     }
-    a:hover {
+    a:hover,
+    a:visited,
+    a:focus {
         color: #fff;
     }
     .nav>li>a:focus,
