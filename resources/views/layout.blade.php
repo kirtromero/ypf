@@ -108,6 +108,7 @@
     }
     .scene-info {
         font-size: 12px;
+        color: #9A9A9A;
     }
     .thumbs:hover h5 {
         text-decoration: underline;
