@@ -26,12 +26,16 @@ class HomeController extends Controller
         return view('home.index', $data);
     }
 
-    public function showSearch($slug = "", Request $request)
+    public function showSearch($search = "", Request $request)
     {
-        $tag = Tag::where("slug","=",$slug)->first();
-        $data['tag'] = $tag;
-        $data['scenes'] = $tag->scene()->groupBy('id')->orderBy("created_at","DESC")->paginate(100);
-        $data['pageTitle'] = isset($tag->name) ? ucfirst( $tag->name ) . " Porn Flix | YourPornFlix.com" : " Free Porn Flix | YourPornFlix.com " ;
+        $data['scenes'] = Scene::with('tag')->whereHas('tag', function($query) use ($search) {
+                            $query->where('name', 'LIKE', "%".$search."%");
+                        })
+                        ->orWhere('title', 'LIKE', "%".$search."%")
+                        ->orderBy("rating","DESC")
+                        ->paginate(100);
+
+        $data['pageTitle'] = isset($search) ? ucfirst( $search ) . " Porn Flix | YourPornFlix.com" : " Free Porn Flix | YourPornFlix.com " ;
 
         return view('home.search', $data);
     }
@@ -57,7 +61,7 @@ class HomeController extends Controller
                                                     $query->where('name', 'LIKE', "%".$search."%");
                                                 })
                                                 ->orWhere('title', 'LIKE', "%".$search."%")
-                                                ->orderBy("created_at","DESC")
+                                                ->orderBy("rating","DESC")
                                                 ->paginate(100);
 
         }
