@@ -95,7 +95,7 @@
         float: left;
         height: 170px;
         width: 180px;
-        margin: 0px 15px 5px 1px;
+        margin: 0px 5px 5px 1px;
         text-align: center;
     }
     .thumbs-img-cont {
