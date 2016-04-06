@@ -95,7 +95,7 @@
         float: left;
         height: 170px;
         width: 180px;
-        margin: 0px 15px 1px 1px;
+        margin: 0px 15px 5px 1px;
         text-align: center;
     }
     .thumbs-img-cont {
@@ -105,6 +105,9 @@
     .thumbs-img-cont img {
         position: absolute;
         top: 15px;
+    }
+    .scene-info {
+        font-size: 12px;
     }
     .thumbs:hover h5 {
         text-decoration: underline;
