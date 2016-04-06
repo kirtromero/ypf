@@ -53,7 +53,7 @@ class HomeController extends Controller
         elseif($request->has('q'))
         {
             $search = $request->has('q');
-            $data['scenes'] = Scene::with('tags')->whereHas('tags', function($query) use ($search) {
+            $data['scenes'] = Scene::with('tag')->whereHas('tag', function($query) use ($search) {
                                                     $query->where('name', 'LIKE', "%".$search."%");
                                                 })
                                                 ->orWhere('title', 'LIKE', "%".$search."%")
