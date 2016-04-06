@@ -35,7 +35,7 @@ class HomeController extends Controller
                         ->orWhere('title', 'LIKE', "%".$search."%")
                         ->orderBy("rating","DESC");
         $data['total'] = $scenes->count();
-        $data['scenes'] = $scenes->paginate(50);
+        $data['scenes'] = $scenes->paginate(10);
         $data['pageTitle'] = isset($search) ? ucfirst( $search ) . " Porn Flix | YourPornFlix.com" : " Free Porn Flix | YourPornFlix.com " ;
 
         return view('home.search', $data);
