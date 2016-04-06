@@ -19,7 +19,7 @@
         </div>
         <div class="scene-info text-left">
             <span>{{ date("F d, Y", strtotime($scene->created_at)) }}</span>
-            <span class="pull-right">{{ gmdate("i:s", $scene->duration) }}</span>
+            <span class="pull-right">@if(is_numeric($scene->duration)){{ gmdate("i:s", $scene->duration) }}@else 00:00 @endif</span>
         </div>
     </div>
     @endforeach
