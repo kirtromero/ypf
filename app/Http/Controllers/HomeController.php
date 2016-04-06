@@ -33,6 +33,7 @@ class HomeController extends Controller
                             $query->where('name', 'LIKE', "%".$search."%");
                         })
                         ->orWhere('title', 'LIKE', "%".$search."%")
+                        ->whereNull('deleted_at')
                         ->orderBy("rating","DESC");
         $data['total'] = $scenes->count();
         $data['scenes'] = $scenes->paginate($limit);
@@ -48,13 +49,13 @@ class HomeController extends Controller
         {
             if($request->input('sort') == 'date')
             {
-                $scenes = Scene::orderBy('created_at','desc');
+                $scenes = Scene::orderBy('created_at','desc')->whereNull('deleted_at');
                 $data['total'] = $scenes->count();
                 $data['scenes'] = $scenes->paginate($limit);
             }
             else
             {
-                $scenes = Scene::orderBy('rating','desc');
+                $scenes = Scene::orderBy('rating','desc')->whereNull('deleted_at');
                 $data['total'] = $scenes->count();
                 $data['scenes'] = $scenes->paginate($limit);
             }
@@ -67,6 +68,7 @@ class HomeController extends Controller
                                                     $query->where('name', 'LIKE', "%".$search."%");
                                                 })
                                                 ->orWhere('title', 'LIKE', "%".$search."%")
+                                                ->whereNull('deleted_at')
                                                 ->orderBy("rating","DESC");
 
             $data['total'] = $scenes->count();
