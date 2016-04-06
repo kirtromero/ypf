@@ -46,22 +46,26 @@
         border-radius: 0px;
     }
     h1 {
-    	margin: 0px;
-    	font-size: 25px;
+        margin: 0px;
+        font-size: 25px;
     }
     h5 {
-	    margin: 5px 0px;
-	    font-weight: bold;
-	    width: 100%;
-	    text-overflow: ellipsis;
-	    white-space: nowrap;
-	    overflow: hidden;
+        margin: 5px 0px;
+        font-weight: bold;
+        width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
         text-transform: uppercase;
-	}
+    }
     .thumb-title {
         font-weight: 400;
         text-align: left;
-        font-size: 12px;
+        font-size: 14px;
+        text-transform: capitalize;
+        position: absolute;
+        top: 0px;
+        margin: 0px;
     }
     .thumbs:hover a .thumb-title {
         white-space: normal;
@@ -70,6 +74,7 @@
         position: relative;
         padding: 0px 2px 5px 0px;
         background: #000;
+        text-decoration: underline;
     }
     .thumbnails {
         border: 1px solid #333333;
@@ -79,24 +84,34 @@
         text-align: center;
         vertical-align: middle;
     }
-
     .content {
         text-align: center;
         display: inline-block;
     }
-
     .title {
         font-size: 96px;
     }
     .thumbs {
         float: left;
-        height: 160px;
+        height: 170px;
         width: 180px;
-        margin: 0px 1px 1px 1px;
+        margin: 0px 15px 1px 1px;
         text-align: center;
+    }
+    .thumbs-img-cont {
+        position: relative;
+        height: 150px;
+    }
+    .thumbs-img-cont img {
+        position: absolute;
+        top: 15px;
     }
     .thumbs:hover h5 {
         text-decoration: underline;
+    }
+    .thumbs a:focus,
+    .thumbs a:visited {
+        color: #fff;
     }
     .navbar-brand {
         padding: 10px 10px;
@@ -108,7 +123,9 @@
         background: #fff;
     }
     .pagination {
-        margin: 20px auto;
+        margin: 5px 0px;
+        float: left;
+        padding: 0px;
     }
     .pagination>li>a:focus,
     .pagination>li>a:hover,
@@ -125,20 +142,41 @@
         z-index: 3;
         color: #fff;
         cursor: default;
-        background-color: #DF2027;
-        border-color: #DF2027;
+        background-color: #BE0008;
+        cursor: not-allowed;
+        border-color: #FF696E;
     }
     .pagination>li>a,
     .pagination>li>span {
         position: relative;
         float: left;
-        padding: 6px 12px;
+        padding: 5px 10px;
         margin-left: -1px;
         line-height: 1.42857143;
-        color: #DF2027;
+        color: #fff;
         text-decoration: none;
-        background-color: #fff;
-        border: 1px solid #ddd;
+        background-color: #DF2027;
+        border: 1px solid #FF6E6E;
+        font-size: 13px;
+        border-radius: 0px;
+        margin: 4px;
+    }
+    .pagination>li:last-child>a,
+    .pagination>li:last-child>span,
+    .pagination>li:first-child>a,
+    .pagination>li:first-child>span {
+        border-radius: 0px;
+    }
+    .pagination>.disabled>a,
+    .pagination>.disabled>a:focus,
+    .pagination>.disabled>a:hover,
+    .pagination>.disabled>span,
+    .pagination>.disabled>span:focus,
+    .pagination>.disabled>span:hover {
+        color: #777;
+        cursor: not-allowed;
+        background-color: #4E0000;
+        border-color: #4F1818;
     }
     footer {
         margin-top: 20px;
@@ -213,18 +251,18 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <form class="navbar-form navbar-left" role="search" action="/search">
-	                    <div class="form-group">
-	                        <input type="text" class="form-control" name="q" placeholder="Search">
-	                    </div>
-	                    <button type="submit" class="btn btn-default">Search</button>
-	                </form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="q" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="cleafix"></div>
     <div class="container-fluid">
-    	@yield('content')
+        @yield('content')
 
         <h4>Free Porn Flix Categories</h4>
         <div id="categories" class="hidden-sm hidden-xs">
@@ -242,23 +280,23 @@
     <script type="text/javascript">
     $(document).ready(function(){
         $.ajax({
-          method: "GET",
-          url: "/all-categories"
+            method: "GET",
+            url: "/all-categories"
         })
-          .done(function( html ) {
+        .done(function( html ) {
             $("#categories").html(html);
-          });
+        });
     });
     </script>
 
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-75683029-1', 'auto');
-      ga('send', 'pageview');
+    ga('create', 'UA-75683029-1', 'auto');
+    ga('send', 'pageview');
 
     </script>
 </body>

@@ -28,13 +28,13 @@ class HomeController extends Controller
 
     public function showSearch($search = "", Request $request)
     {
-        $data['scenes'] = Scene::with('tag')->whereHas('tag', function($query) use ($search) {
+        $scenes = Scene::with('tag')->whereHas('tag', function($query) use ($search) {
                             $query->where('name', 'LIKE', "%".$search."%");
                         })
                         ->orWhere('title', 'LIKE', "%".$search."%")
-                        ->orderBy("rating","DESC")
-                        ->paginate(100);
-
+                        ->orderBy("rating","DESC");
+        $data['total'] = $scenes->count();
+        $data['scenes'] = $scenes->paginate(1);
         $data['pageTitle'] = isset($search) ? ucfirst( $search ) . " Porn Flix | YourPornFlix.com" : " Free Porn Flix | YourPornFlix.com " ;
 
         return view('home.search', $data);
@@ -42,32 +42,39 @@ class HomeController extends Controller
 
     public function showBySort(Request $request)
     {
+        $limit = 2;
         if($request->has('sort'))
         {
             if($request->input('sort') == 'date')
             {
-                $data['scenes'] = Scene::orderBy('created_at','desc')->paginate(100);
+                $scenes = Scene::orderBy('created_at','desc');
+                $data['total'] = $scenes->count();
+                $data['scenes'] = $scenes->paginate($limit);
             }
             else
             {
-                $data['scenes'] = Scene::orderBy('rating','desc')->paginate(100);
+                $scenes = Scene::orderBy('rating','desc');
+                $data['total'] = $scenes->count();
+                $data['scenes'] = $scenes->paginate($limit);
             }
 
         }
         elseif($request->has('q'))
         {
             $search = $request->get('q');
-            $data['scenes'] = Scene::with('tag')->whereHas('tag', function($query) use ($search) {
+            $scenes = Scene::with('tag')->whereHas('tag', function($query) use ($search) {
                                                     $query->where('name', 'LIKE', "%".$search."%");
                                                 })
                                                 ->orWhere('title', 'LIKE', "%".$search."%")
-                                                ->orderBy("rating","DESC")
-                                                ->paginate(100);
+                                                ->orderBy("rating","DESC");
+
+            $data['total'] = $scenes->count();
+            $data['scenes'] = $scenes->paginate($limit);
 
         }
         else
         {
-            $data['scenes'] = Scene::paginate(100);
+            $data['scenes'] = Scene::paginate($limit);
         }
 
         $data['pageTitle'] = isset($search) ? ucfirst( $search ) . " Porn Flix | YourPornFlix.com" : " Free Porn Flix | YourPornFlix.com " ;
