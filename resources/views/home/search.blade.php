@@ -3,7 +3,7 @@
 @section('content')
 <div class="content">
     @if(isset($tag))
-    <h1 class="text-left">Results for {{ $tag->name }} <small>{{ $total }} total results found</small></h1>
+    <h1 class="text-left">Results for {{ $tag->name }} <small>{{ number_format($total) }} total results found</small></h1>
     @else
     <h1 class="text-left">All Results <small>{{ $total }} total results found</small></h1>
     @endif

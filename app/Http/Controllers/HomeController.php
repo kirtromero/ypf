@@ -28,13 +28,14 @@ class HomeController extends Controller
 
     public function showSearch($search = "", Request $request)
     {
+        $limit = 100;
         $scenes = Scene::with('tag')->whereHas('tag', function($query) use ($search) {
                             $query->where('name', 'LIKE', "%".$search."%");
                         })
                         ->orWhere('title', 'LIKE', "%".$search."%")
                         ->orderBy("rating","DESC");
         $data['total'] = $scenes->count();
-        $data['scenes'] = $scenes->paginate(1);
+        $data['scenes'] = $scenes->paginate($limit);
         $data['pageTitle'] = isset($search) ? ucfirst( $search ) . " Porn Flix | YourPornFlix.com" : " Free Porn Flix | YourPornFlix.com " ;
 
         return view('home.search', $data);
