@@ -30,7 +30,7 @@ class HomeController extends Controller
     {
         $limit = 100;
         $scenes = Scene::whereHas('tags', function($query) use ($search) {
-                            $query->where('name', 'LIKE', "%".$search."%");
+                            $query->where('slug', 'LIKE', "%".$search."%");
                         })
                         ->orWhere('title', 'LIKE', "%".$search."%")
                         ->whereNull('deleted_at')
@@ -65,11 +65,11 @@ class HomeController extends Controller
         {
             $search = $request->get('q');
             $scenes = Scene::whereHas('tags', function($query) use ($search) {
-                                                    $query->where('name', 'LIKE', "%".$search."%");
-                                                })
-                                                ->orWhere('title', 'LIKE', "%".$search."%")
-                                                ->whereNull('deleted_at')
-                                                ->orderBy("rating","DESC");
+                                    $query->where('name', 'LIKE', "%".$search."%");
+                                })
+                                ->orWhere('title', 'LIKE', "%".$search."%")
+                                ->whereNull('deleted_at')
+                                ->orderBy("rating","DESC");
 
             $data['total'] = $scenes->count();
             $data['scenes'] = $scenes->paginate($limit);
