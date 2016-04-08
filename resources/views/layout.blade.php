@@ -299,6 +299,9 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+    <script src="{{ url('js/jquery.lazyload.min.js') }}"></script>
+    <script src="{{ url('js/jquery.scrollstop.min.js') }}"></script>
+
     <script type="text/javascript">
     $(document).ready(function(){
         $.ajax({
@@ -307,6 +310,11 @@
         })
         .done(function( html ) {
             $("#categories").html(html);
+        });
+    });
+    $(function() {
+        $("img.lazy").lazyload({
+          event: "scrollstop"
         });
     });
     </script>

@@ -14,7 +14,10 @@
         <div class="thumbs-img-cont">
             <a href="/out/{{ $scene->id }}/{{ str_slug($scene->title) }}" title="{{ $scene->title }}" target="_blank" alt="{{ $scene->title }}">
                 <h5 class="thumb-title">{{ $scene->title }}</h5>
-                <img src="{{ $scene->primary_thumbnail }}" title="{{ $scene->title }}" alt="{{ $scene->title }}" class="img-responsive center-block"  width="180" height="135">
+                <img data-original="{{ $scene->primary_thumbnail }}" title="{{ $scene->title }}" alt="{{ $scene->title }}" class="lazy img-responsive center-block"  width="180" height="135">
+                <noscript>
+                    <img src="{{ $scene->primary_thumbnail }}" title="{{ $scene->title }}" alt="{{ $scene->title }}" class="img-responsive center-block"  width="180" height="135">
+                </noscript>
             </a>
         </div>
         <div class="scene-info text-left">
