@@ -9,12 +9,12 @@ class Scene_has_tag extends Model
 
 	protected $table = 'scene_has_tags';
 
-    public function scene()
+    public function scenes()
     {
         return $this->belongsTo('App\Scene');
     }
 
-    public function tag()
+    public function tags()
     {
         return $this->belongsTo('App\Tag');
     }

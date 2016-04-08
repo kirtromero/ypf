@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Stat extends Model
 {
 
-    public function scene()
+    public function scenes()
     {
         return $this->belongsTo('App\Scene');
     }
 
-    public function affiliate()
+    public function affiliates()
     {
         return $this->belongsTo('App\Affiliate');
     }

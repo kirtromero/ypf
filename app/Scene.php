@@ -9,17 +9,17 @@ class Scene extends Model
 {
     use SoftDeletes;
 
-    public function site()
+    public function sites()
     {
         return $this->hasOne('App\Site');
     }
 
-    public function affiliate()
+    public function affiliates()
     {
         return $this->hasOne('App\Affiliate');
     }
 
-    public function tag()
+    public function tags()
     {
         return $this->belongsToMany('App\Tag','scene_has_tags');
     }
@@ -29,8 +29,13 @@ class Scene extends Model
         return $this->belongsTo('App\Stat');
     }
 
-    public function thumbnail()
+    public function thumbnails()
     {
         return $this->hasMany('App\Thumbnail');
+    }
+
+    public function scopeTitle($query, $title)
+    {
+        return $query->with('title', 'LIKE', "%".$title."%");
     }
 }

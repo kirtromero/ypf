@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function showSearch($search = "", Request $request)
     {
         $limit = 100;
-        $scenes = Scene::with('tag')->whereHas('tag', function($query) use ($search) {
+        $scenes = Scene::whereHas('tags', function($query) use ($search) {
                             $query->where('name', 'LIKE', "%".$search."%");
                         })
                         ->orWhere('title', 'LIKE', "%".$search."%")
@@ -64,7 +64,7 @@ class HomeController extends Controller
         elseif($request->has('q'))
         {
             $search = $request->get('q');
-            $scenes = Scene::with('tag')->whereHas('tag', function($query) use ($search) {
+            $scenes = Scene::whereHas('tags', function($query) use ($search) {
                                                     $query->where('name', 'LIKE', "%".$search."%");
                                                 })
                                                 ->orWhere('title', 'LIKE', "%".$search."%")

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Thumbnail extends Model
 {
-    public function scene()
+    public function scenes()
     {
         return $this->belongsTo('App\Scene');
     }

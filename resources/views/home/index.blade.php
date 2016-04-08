@@ -13,9 +13,9 @@
                     <img alt="{{ $tag->name }}" src="{{ $tag->PrimaryThumbnail }}" class="img-responsive center-block thumbnails" width="180" height="135">
                 </noscript>
         	@else
-                <img alt="{{ $tag->name }}" data-original="{{ $tag->scene()->orderBy('created_at','desc')->first()->primary_thumbnail }}" class="lazy img-responsive center-block thumbnails" width="180" height="135">
+                <img alt="{{ $tag->name }}" data-original="{{ $tag->scenes()->orderBy('created_at','desc')->first()->primary_thumbnail }}" class="lazy img-responsive center-block thumbnails" width="180" height="135">
                 <noscript>
-                    <img alt="{{ $tag->name }}" src="{{ $tag->scene()->orderBy('created_at','desc')->first()->primary_thumbnail }}" class="img-responsive center-block thumbnails" width="180" height="135">
+                    <img alt="{{ $tag->name }}" src="{{ $tag->scenes()->orderBy('created_at','desc')->first()->primary_thumbnail }}" class="img-responsive center-block thumbnails" width="180" height="135">
                 </noscript>
         	@endif
             <h5>{{ $tag->name }}</h5>

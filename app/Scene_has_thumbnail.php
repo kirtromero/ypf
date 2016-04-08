@@ -8,12 +8,12 @@ class Scene_has_thumbnail extends Model
 {
     protected $table = 'scene_has_thumbnails';
 
-    public function scene()
+    public function scenes()
     {
         return $this->belongsTo('App\Scene');
     }
 
-    public function thumbnail()
+    public function thumbnails()
     {
         return $this->belongsTo('App\Thumbnail');
     }
