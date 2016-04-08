@@ -103,6 +103,7 @@
     .thumbs-img-cont {
         position: relative;
         height: 150px;
+        overflow: hidden;
     }
     .thumbs-img-cont img {
         position: absolute;
