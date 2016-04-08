@@ -218,6 +218,14 @@
     h4 {
         color: #A0A0A0;
     }
+    footer ul {
+        text-align: center;
+    }
+    footer ul li {
+        display: inline-block;
+        margin: 5px 0px;
+        text-align: center;
+    }
     @media (max-width: 768px){
         .navbar-brand>img {
             width: 205px;
@@ -275,6 +283,14 @@
         </div>
     </div>
     <footer>
+        <h4 class="text-center">PARENTS! USE THESE SITES TO FILTER ADULT CONTENT!</h4>
+        <ul>
+            <li><a href="http://www.fosi.org/">FOSI</a> |</li>
+            <li><a href="http://www.cyberpatrol.com/">Cyber Patrol</a> |</li>
+            <li><a href="http://www.safesurf.com/">Safe Surf </a> |</li>
+            <li><a href="http://www.netnanny.com/">Net Nanny</a> |</li>
+            <li><a href="http://www.cybersitter.com/">Cyber Sitter</a></li>
+        </ul>
         <div class="container text-center">
             &copy; 2016 YoupornFlix.com
         </div>
