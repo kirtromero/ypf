@@ -85,7 +85,7 @@ class HomeController extends Controller
         return view('home.search', $data);
     }
 
-    public function showOut($id, $slug = "")
+    public function showOut($id, $slug = false)
     {
         $scene = Scene::findOrFail($id);
 
